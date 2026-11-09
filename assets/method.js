@@ -1,4 +1,4 @@
-import{K,states,solve,correct,project,mix,qpPoint,outerPoint,projectionPoint,path,n,qpMesh}from'./method-model.js';
+import{K,states,solve,correct,project,mix,qpPoint,outerPoint,projectionPoint,path,n,qpMesh}from'./method-model.js?v=20261109-2';
 const stages=[{name:'predict',round:0,duration:1400}];
 for(let k=0;k<K;k++)stages.push({name:'lower',round:k,duration:3200},{name:'coupling',round:k,duration:1400},{name:'update',round:k,duration:2800},{name:'project',round:k,duration:1700});
 stages.push({name:'output',round:K,duration:2400},{name:'training',round:K,duration:2400});

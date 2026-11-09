@@ -41,3 +41,5 @@ The visual foundation is the SOLARIS TQPNet project page. Retain attribution and
 `node scripts/generate-method.mjs` recreates the method SVG. `node scripts/prepare-figures.mjs` adds presentation margins to the original paper figures without changing their data. `node scripts/generate-social.mjs` creates the social SVG; PNG regeneration additionally uses the optional `sharp` package. Generated assets are committed, so deployment needs no image-processing dependency.
 
 The complete source mapping is in `docs/scientific-audit.md`, with a concise entry point in `docs/source-map.md`. Numerical results are transcribed from arXiv v2; they were not independently rerun. Official publication details and the citation follow PMLR331 (2026).
+
+Changed animation/style assets have a version query in index.html (and the animation model import) so returning visitors do not mix new markup with cached older scripts. Bump these version strings when changing the corresponding assets.

@@ -32,11 +32,11 @@
   <meta name="citation_arxiv_id" content="2507.09050">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=20261109-2">
   <script defer src="assets/vendor/katex/katex.min.js"></script>
   <script defer src="assets/vendor/katex/auto-render.min.js"></script>
   <script defer src="assets/script.js"></script>
-  <script type="module" src="assets/method.js"></script>
+  <script type="module" src="assets/method.js?v=20261109-2"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to research content</a>
@@ -80,10 +80,10 @@
           <p class="hero-subtext">The result is an approximate design-and-control solution that retains the interaction between physical design, operating performance, and their shared constraints.</p>
         </div>
         <figure class="figure method-overview" aria-labelledby="method-caption">
-          <div class="method-scroll" tabindex="0" role="region" aria-label="Method diagram; scroll horizontally on narrow screens"><object id="method-diagram" data="assets/method.svg" type="image/svg+xml" aria-label="Computational diagram of neural initialization and repeated differentiable control, coupling correction, and design projection">
-            <img src="assets/method.svg" alt="Problem parameters initialize a design through a neural network. Each correction solves the lower-level control problem, computes the coupling-violation gradient, updates the design, and projects onto its design constraints. A final control solve produces the output pair; the soft loss updates network weights only during training.">
+          <div class="method-scroll" tabindex="0" role="region" aria-label="Method diagram; scroll horizontally on narrow screens"><object id="method-diagram" data="assets/method.svg?v=20261109-2" type="image/svg+xml" aria-label="Computational diagram of neural initialization and repeated differentiable control, coupling correction, and design projection">
+            <img src="assets/method.svg?v=20261109-2" alt="Problem parameters initialize a design through a neural network. Each correction solves the lower-level control problem, computes the coupling-violation gradient, updates the design, and projects onto its design constraints. A final control solve produces the output pair; the soft loss updates network weights only during training.">
           </object></div>
-          <div id="diagram-controls" class="diagram-controls"><button class="btn" id="method-play" type="button" disabled>Play</button><button class="btn" id="method-step" type="button" disabled>Step</button><button class="btn" id="method-reset" type="button" disabled>Restart</button><a href="assets/method.svg" class="btn">Open diagram</a><p id="method-status" role="status" aria-live="polite">Illustrative QP and coupling correction. Animation is optional.</p></div>
+          <div id="diagram-controls" class="diagram-controls"><button class="btn" id="method-play" type="button" disabled>Play</button><button class="btn" id="method-step" type="button" disabled>Step</button><button class="btn" id="method-reset" type="button" disabled>Restart</button><a href="assets/method.svg?v=20261109-2" class="btn">Open diagram</a><p id="method-status" role="status" aria-live="polite">Illustrative QP and coupling correction. Animation is optional.</p></div>
           <figcaption id="method-caption">An explanatory redraw of Algorithm 1, adapted from the existing SOLARIS graphical abstract. The lower-level optimization is solved inside the correction loop and again for the final design. The loss and weight update belong to offline training. The dashed return updates the initializer’s weights during training only. The animated QP, gradient field and projection use one dimensionless explanatory example; they are not benchmark data or the authors’ solver trace. Arrows show the negative penalty gradient; the moving design takes a discrete gradient step before projection. Scroll horizontally on small screens or open the full diagram.</figcaption>
         </figure>
         <div class="logos" aria-label="Research institutions and SOLARIS Laboratory">
