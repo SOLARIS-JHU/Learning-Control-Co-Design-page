@@ -11,4 +11,8 @@ Checked 2026-11-09 against arXiv v2 and research-code commit a6743e1a3477427bde2
 - No application JavaScript errors observed. The browser extension emitted asynchronous-message channel warnings, unrelated to website source.
 - External resource link checks are recorded in link-checks.json; some official JHU pages reject automated fetches with403. Their official URLs were verified independently.
 
-Deployment and live-site verification are recorded after publication.
+## Deployment and live verification
+
+GitHub Actions run42687357645 completed successfully: https://github.com/SOLARIS-JHU/Learning-Control-Co-Design-page/actions/runs/42687357645. The actual published page opened successfully at https://solaris-jhu.github.io/Learning-Control-Co-Design-page/. All90 public files returned HTTP200 and matched the committed source byte-for-byte; see live-asset-checks.json. Live Chrome verified all eight image elements loaded,19 equations rendered without KaTeX errors, and diagram Step/Play/Pause operation. Screenshot: qa/live-site.jpg.
+
+Final refinement makes section navigation immediate rather than smoothly scrolling through the long page. A local favicon is provided. Deployment workflows validate every subsequent source change.

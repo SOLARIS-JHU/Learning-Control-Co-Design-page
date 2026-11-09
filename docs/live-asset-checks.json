@@ -1,0 +1,456 @@
+{
+  "date": "2026-11-09",
+  "commit": "2455b159013ff464e493e6561e323e5cb6b9d0d3",
+  "checks": [
+    {
+      "path": "assets/figures/HVAC_curves-display.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/figures/HVAC_curves.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/figures/QP_curves_2-display.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/figures/QP_curves_2.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/figures/tt_curves-display.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/figures/tt_curves.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/font-0.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/font-1.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/font-2.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/font-3.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/font-4.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/fonts.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/OFL-Fraunces.txt",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/OFL-Inter.txt",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/jhu-whiting.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/method.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/method.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/pnnl.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/script.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/social-preview.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/social-preview.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/solaris.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/style.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/uva.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/auto-render.min.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_AMS-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_AMS-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_AMS-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Caligraphic-Bold.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Caligraphic-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Fraktur-Bold.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Fraktur-Bold.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Fraktur-Bold.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Fraktur-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Fraktur-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Fraktur-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Bold.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Bold.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Bold.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-BoldItalic.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-BoldItalic.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-BoldItalic.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Italic.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Italic.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Italic.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Main-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Math-BoldItalic.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Math-BoldItalic.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Math-BoldItalic.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Math-Italic.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Math-Italic.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Math-Italic.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Bold.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Bold.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Bold.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Italic.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Italic.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Italic.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_SansSerif-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Script-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Script-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Script-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size1-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size1-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size1-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size2-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size2-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size2-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size3-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size3-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size3-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size4-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size4-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Size4-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Typewriter-Regular.ttf",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Typewriter-Regular.woff",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/fonts/KaTeX_Typewriter-Regular.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/katex.min.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/katex.min.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/vendor/katex/LICENSE",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "citation.bib",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "match": true
+    }
+  ]
+}
