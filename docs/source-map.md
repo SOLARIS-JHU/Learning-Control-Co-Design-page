@@ -41,3 +41,5 @@ See `code-audit.md` for the detailed pinned-code inspection when present. Manusc
 | Timing limitations | §5 tables omit benchmark hardware and timing batch size; code-audit.md records incompatible timing scopes. |
 
 All timings are seconds. Table spreads are across test instances, not training seeds or confidence intervals. Figure2 uses logarithmic vertical axes; nonpositive portions of mean±SD bands are not displayed.
+
+The animated QP surface, gradient field, candidate trajectory and projection are explicitly generated explanatory geometry. They share the dimensionless toy defined in illustrative-animation.md; they are not manuscript results or authors’ solver traces. Their computational order follows Algorithm1.

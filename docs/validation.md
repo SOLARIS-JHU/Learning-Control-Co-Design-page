@@ -20,3 +20,5 @@ Final refinement makes section navigation immediate rather than smoothly scrolli
 ## Requested animation refinement
 
 Added a moving inner-QP iterate on a quadratic surface, a negative-gradient field with a moving design correction, and a separate animated projection. All insets share a consistent dimensionless toy; see illustrative-animation.md. The resource button now reads “arXiv”; its version-pinned target remains the primary scientific source.
+
+Final animation deployment run42690349961 succeeded: https://github.com/SOLARIS-JHU/Learning-Control-Co-Design-page/actions/runs/42690349961. All91 public resources returned HTTP200 and exactly matched the revised source. Live playback/step/restart and the changed arXiv label were checked; live section navigation reached its target immediately, all loaded images were valid, KaTeX reported zero errors, and keyboard BibTeX copying succeeded. The revised390px layout had no document overflow. Screenshot: qa/animated-method.jpg. Versioned asset URLs prevent old browser caches from combining old animation scripts with new markup.

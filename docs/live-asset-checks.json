@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "commit": "2455b159013ff464e493e6561e323e5cb6b9d0d3",
+  "commit": "e1985250a1e2dc561f009852cb11e84cc54baf42",
   "checks": [
     {
       "path": "assets/figures/HVAC_curves-display.svg",
@@ -74,6 +74,11 @@
     },
     {
       "path": "assets/jhu-whiting.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/method-model.js",
       "status": 200,
       "match": true
     },
@@ -443,12 +448,12 @@
       "match": true
     },
     {
-      "path": "citation.bib",
+      "path": "index.html",
       "status": 200,
       "match": true
     },
     {
-      "path": "index.html",
+      "path": "citation.bib",
       "status": 200,
       "match": true
     }
