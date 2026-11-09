@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning to Solve Constrained Bilevel Control Co-Design Problems | SOLARIS</title>
+  <meta name="description" content="Learning system designs through differentiable optimal control, design projection, and coupling-constraint correction. L4DC 2026 research from PNNL, UVA, and JHU.">
+  <meta name="theme-color" content="#002d72">
+  <link rel="canonical" href="https://solaris-jhu.github.io/Learning-Control-Co-Design-page/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Learning to Solve Constrained Bilevel Control Co-Design Problems">
+  <meta property="og:description" content="A self-supervised learning-to-optimize framework linking system design, optimal control, and coupling-constraint correction.">
+  <meta property="og:url" content="https://solaris-jhu.github.io/Learning-Control-Co-Design-page/">
+  <meta property="og:image" content="https://solaris-jhu.github.io/Learning-Control-Co-Design-page/assets/social-preview.png">
+  <meta property="og:image:alt" content="SOLARIS control co-design: neural initialization, differentiable optimal control, and projected coupling correction.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="Learning to Solve Constrained Bilevel Control Co-Design Problems">
+  <meta name="citation_author" content="James Kotary">
+  <meta name="citation_author" content="Himanshu Sharma">
+  <meta name="citation_author" content="Ethan King">
+  <meta name="citation_author" content="Draguna L Vrabie">
+  <meta name="citation_author" content="Ferdinando Fioretto">
+  <meta name="citation_author" content="Jan Drgona">
+  <meta name="citation_publication_date" content="2026/06/07">
+  <meta name="citation_conference_title" content="Proceedings of The 8th Annual Learning for Dynamics and Control Conference">
+  <meta name="citation_journal_title" content="Proceedings of Machine Learning Research">
+  <meta name="citation_volume" content="331">
+  <meta name="citation_firstpage" content="222">
+  <meta name="citation_lastpage" content="241">
+  <meta name="citation_pdf_url" content="https://raw.githubusercontent.com/mlresearch/v331/main/assets/kotary26a/kotary26a.pdf">
+  <meta name="citation_arxiv_id" content="2507.09050">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/vendor/katex/katex.min.js"></script>
+  <script defer src="assets/vendor/katex/auto-render.min.js"></script>
+  <script defer src="assets/script.js"></script>
+  <script defer src="assets/method.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to research content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="https://solaris-jhu.github.io/solaris-website/" aria-label="SOLARIS Laboratory home">SOLARIS<span>Research project</span></a>
+      <nav aria-label="Page sections">
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="wrap">
+        <div class="hero-head">
+          <p class="eyebrow"><span class="pill">L4DC 2026</span> <a href="https://sites.google.com/usc.edu/l4dc2026/program/technical-program">Oral presentation</a></p>
+          <h1 id="paper-title">Learning to Solve Constrained Bilevel Control Co-Design Problems</h1>
+          <div class="authors" aria-label="Paper authors">
+            <span class="author"><a href="https://j-kota.github.io/">James Kotary</a><sup>1</sup></span>
+            <span class="author"><a href="https://www.pnnl.gov/people/himanshu-sharma">Himanshu Sharma</a><sup>1</sup></span>
+            <span class="author"><a href="https://www.pnnl.gov/people/ethan-king">Ethan King</a><sup>1</sup></span>
+            <span class="author"><a href="https://www.pnnl.gov/people/draguna-vrabie-phd">Draguna Vrabie</a><sup>1</sup></span>
+            <span class="author"><a href="https://nandofioretto.github.io/">Ferdinando Fioretto</a><sup>2</sup></span>
+            <span class="author"><a href="https://engineering.jhu.edu/case/faculty/jan-drgona/">Jan Drgona</a><sup>3</sup></span>
+          </div>
+          <p class="affiliations"><sup>1</sup> <a href="https://www.pnnl.gov/">Pacific Northwest National Laboratory</a> &nbsp; <sup>2</sup> <a href="https://www.virginia.edu/">University of Virginia</a> &nbsp; <sup>3</sup> <a href="https://www.jhu.edu/">Johns Hopkins University</a></p>
+          <p class="publication">Proceedings of Machine Learning Research, Volume 331, pages 222–241</p>
+          <div class="buttons resource-buttons" aria-label="Research resources">
+            <a class="btn btn-primary" href="https://arxiv.org/pdf/2507.09050v2">Paper PDF <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="https://arxiv.org/abs/2507.09050v2">arXiv v2 <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="https://proceedings.mlr.press/v331/kotary26a.html">Proceedings <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="https://github.com/anon-research-coding/Control-Design-Learning">Code <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="#citation">BibTeX <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-intro">
+          <p class="eyebrow">Design with the controller in the loop</p>
+          <p class="summary">A system’s best design depends on how it will be controlled. This work learns design proposals across problem scenarios, then refines them through differentiable optimal control and constraint correction.</p>
+          <p class="hero-subtext">The result is an approximate design-and-control solution that retains the interaction between physical design, operating performance, and their shared constraints.</p>
+        </div>
+        <figure class="figure method-overview" aria-labelledby="method-caption">
+          <div class="method-scroll" tabindex="0" role="region" aria-label="Method diagram; scroll horizontally on narrow screens"><object id="method-diagram" data="assets/method.svg" type="image/svg+xml" aria-label="Computational diagram of neural initialization and repeated differentiable control, coupling correction, and design projection">
+            <img src="assets/method.svg" alt="Problem parameters initialize a design through a neural network. Each correction solves the lower-level control problem, computes the coupling-violation gradient, updates the design, and projects onto its design constraints. A final control solve produces the output pair; the soft loss updates network weights only during training.">
+          </object></div>
+          <div id="diagram-controls" class="diagram-controls"><button class="btn" id="method-play" type="button" disabled>Play</button><button class="btn" id="method-step" type="button" disabled>Step</button><a href="assets/method.svg" class="btn">Open diagram</a><p id="method-status" role="status" aria-live="polite">Static method overview. Animation is optional.</p></div>
+          <figcaption id="method-caption">An explanatory redraw of Algorithm 1, adapted from the existing SOLARIS graphical abstract. The lower-level optimization is solved inside the correction loop and again for the final design. The loss and weight update belong to offline training. The dashed return updates the initializer’s weights during training only. This schematic illustrates operations, not measured convergence. Scroll horizontally on small screens or open the full diagram.</figcaption>
+        </figure>
+        <div class="logos" aria-label="Research institutions and SOLARIS Laboratory">
+          <a href="https://solaris-jhu.github.io/solaris-website/"><img class="solaris-mark" src="assets/solaris.png" alt="SOLARIS Laboratory" width="240" height="80" loading="lazy"></a>
+          <a href="https://www.pnnl.gov/"><img src="assets/pnnl.svg" alt="Pacific Northwest National Laboratory" loading="lazy"></a>
+          <a href="https://www.virginia.edu/"><img src="assets/uva.png" alt="University of Virginia" loading="lazy"></a>
+          <a href="https://engineering.jhu.edu/"><img src="assets/jhu-whiting.svg" alt="Johns Hopkins Whiting School of Engineering" width="280" height="80" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="alt" aria-labelledby="overview-title">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Research summary</p>
+        <h2 id="overview-title">Learning an outer decision through an inner optimization</h2>
+        <div class="prose">
+          <p>Control co-design joins two decisions: choose a system’s physical design, then optimize its operation. A design must also permit the controlled system to meet its operating requirements. These <strong>coupling constraints</strong> connect the design and control variables, making the design problem more demanding than optimizing either part independently.</p>
+          <p>The proposed learning-to-optimize (L2O) framework combines a neural design initializer with differentiable optimization and projected gradient corrections. It trains directly on design objectives and constraint violations, without requiring optimal design labels. The paper evaluates the approach on small bilevel quadratic programs and two simulated control co-design tasks.</p>
+        </div>
+        <div class="pillars" aria-label="Main contributions">
+          <article class="card"><span class="num" aria-hidden="true">1</span><h3>A structured predictor</h3><p>Connect learned designs to a differentiable lower-level optimizer, with a projection for design-only constraints.</p></article>
+          <article class="card"><span class="num" aria-hidden="true">2</span><h3>Coupling-aware correction</h3><p>Differentiate through the control solution to reduce violations that depend on both levels.</p></article>
+          <article class="card"><span class="num" aria-hidden="true">3</span><h3>Parametric co-design tests</h3><p>Evaluate solution quality, residual violations, and computation time across held-out problem instances.</p></article>
+        </div>
+        <p class="source-note">Summary of arXiv v2, Sections 1–5; this is a paraphrase, not the paper’s abstract.</p>
+      </div>
+    </section>
+
+    <section id="problem" aria-labelledby="problem-title">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Problem</p>
+        <h2 id="problem-title">Three conditions, two coupled levels</h2>
+        <div class="prose"><p>For scenario parameters \(\mathbf p\), the upper level selects a design \(\mathbf y\). Its objective depends on a lower-level response \(\mathbf z\), which must itself solve an optimization problem.</p></div>
+        <div class="math card" tabindex="0" role="region" aria-label="Bilevel optimization formulation, horizontally scrollable">
+          \[\begin{aligned}
+          \min_{\mathbf y}\;&\mathcal L_{\mathbf p}(\mathbf y,\mathbf z)\\
+          \text{subject to }&\mathbf y\in\mathcal C_{\mathbf p},\qquad \mathbf U_{\mathbf p}(\mathbf y,\mathbf z)\leq\mathbf 0,\\
+          &\mathbf z\in\mathcal O_{\mathbf p}(\mathbf y)
+          =\underset{\mathbf z\in\mathcal S_{\mathbf p}(\mathbf y)}{\arg\min}\;l_{\mathbf p}(\mathbf y,\mathbf z).
+          \end{aligned}\]
+        </div>
+        <div class="modes">
+          <div><h3>Design feasibility</h3><p>\(\mathbf y\in\mathcal C_{\mathbf p}\) restricts the physical design, such as nonnegative actuator coefficients.</p></div>
+          <div><h3>Control response</h3><p>\(\mathbf z\in\mathcal O_{\mathbf p}(\mathbf y)\) ties operation to the lower-level optimization for that design.</p></div>
+          <div><h3>Coupling feasibility</h3><p>\(\mathbf U_{\mathbf p}(\mathbf y,\mathbf z)\leq\mathbf0\) requires the design and its controlled response to work together.</p></div>
+        </div>
+        <p class="source-note">Paper, Section 3, Equations (1)–(2). The method learns over a distribution of parameterized problems.</p>
+      </div>
+    </section>
+
+    <section id="method" class="alt" aria-labelledby="method-title">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Method</p>
+        <h2 id="method-title">Predict, solve, correct, and project</h2>
+        <ol class="components method-steps">
+          <li><strong>Initialize the design.</strong> A neural network maps scenario parameters to \(\mathbf y_0=\mathcal N_\theta(\mathbf p)\).</li>
+          <li><strong>Solve the lower-level problem.</strong> A differentiable optimizer computes the response \(\mathbf z=\mathcal O_{\mathbf p}(\mathbf y)\) and its sensitivity to the design.</li>
+          <li><strong>Correct coupling violations.</strong> Differentiate the squared violation through that response and take a gradient step in the design variables.</li>
+          <li><strong>Project onto design constraints.</strong> Apply \(\Pi_{\mathcal C_{\mathbf p}}\), then repeat the lower-level solve and correction for the next design.</li>
+          <li><strong>Evaluate the final pair.</strong> After the corrections, solve the lower-level problem once more for the final design. During training, backpropagate the soft loss through the composed computation to update \(\theta\).</li>
+        </ol>
+        <div class="math card" tabindex="0" role="region" aria-label="Coupling residual and projected correction equations, horizontally scrollable">
+          \[\begin{aligned}
+          \nu(\mathbf y)&=\operatorname{ReLU}\!\left(\mathbf U_{\mathbf p}\big(\mathbf y,\mathcal O_{\mathbf p}(\mathbf y)\big)\right),\\
+          \mathbf y_{k+1}&=\Pi_{\mathcal C_{\mathbf p}}\!\left(\mathbf y_k-\gamma\nabla_{\mathbf y}\|\nu(\mathbf y_k)\|_2^2\right).
+          \end{aligned}\]
+        </div>
+        <p class="prose">The gradient accounts for how changing the design changes the optimized control response. Projection enforces the design set \(\mathcal C_{\mathbf p}\); it does not by itself enforce the coupling constraints.</p>
+        <div class="training-grid">
+          <article class="card"><h3>Offline training</h3><p>Minimize design cost together with a soft coupling penalty, differentiating through the correction steps and optimization layers.</p><div class="math" tabindex="0" role="region" aria-label="Training loss, horizontally scrollable">\[\mathcal L^{\mathrm{soft}}_{\mathbf p}=\mathcal L_{\mathbf p}(\hat{\mathbf y},\hat{\mathbf z})+\lambda\|\nu(\hat{\mathbf y})\|_2^2.\]</div></article>
+          <article class="card"><h3>Inference on a new scenario</h3><p>Keep the trained weights fixed, predict a design, and execute the lower-level solves and corrections. Additional correction steps may be used at test time. Inference therefore includes numerical optimization.</p></article>
+        </div>
+        <details class="research-details">
+          <summary>When a candidate design makes the original control problem infeasible</summary>
+          <div><p>The paper moves selected operating requirements into the upper-level coupling conditions and relaxes them in the lower-level problem. In the two-tank task, the lower objective penalizes terminal tracking error; in the building task, it penalizes comfort-bound slacks. Corrections then target the terminal error or the zero-slack condition.</p><p>This preserves a lower-level computation for candidate designs, but a finite penalty and a finite number of corrections do not establish exact satisfaction of the original operating requirements.</p></div>
+        </details>
+        <p class="source-note">Paper, Sections 4.1–4.3, Equations (4)–(10), Algorithm 1, and Appendices D–E.</p>
+      </div>
+    </section>
+
+    <section id="results" aria-labelledby="results-title">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Results</p>
+        <h2 id="results-title">Solution quality and residuals, reported together</h2>
+        <p class="prose">The paper tests both approximation quality and coupling-constraint violation. The quadratic-program benchmarks have certified reference optima. The co-design benchmarks compare against a particle swarm optimization (PSO) heuristic; their global optima are unknown.</p>
+
+        <h3>Bilevel quadratic programs</h3>
+        <p class="prose">Three small problem sizes vary the upper-level linear objective coefficients. Each test set contains 1,000 instances. The reference is a YALMIP mixed-integer reformulation using lower-level Karush–Kuhn–Tucker (KKT) conditions and branch-and-bound.</p>
+        <figure class="figure figure-card figure-full">
+          <a href="assets/figures/QP_curves_2.svg" class="plot-scroll" aria-label="Scrollable research plot; open original figure at full resolution"><img src="assets/figures/QP_curves_2-display.svg" alt="Original Figure 2: three panels for 3 by 2, 6 by 4, and 9 by 6 bilevel quadratic programs. Training curves show the mean and standard deviation of relative optimality gap and coupling residual over the test set." loading="lazy"></a>
+          <figcaption>Original Figure 2. Relative optimality gap and coupling violation during training, for the 3 × 2, 6 × 4, and 9 × 6 problems from left to right. The curves and shaded bands show test-set means and standard deviations. Vertical axes are logarithmic; nonpositive portions of the mean ± standard deviation bands are not displayed. Original axes, scales, and legends are retained.</figcaption>
+        </figure>
+        <figure class="table-figure">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Quadratic-program results, horizontally scrollable">
+            <table class="results">
+              <thead><tr><th scope="col">Upper × lower variables</th><th scope="col">Relative objective gap</th><th scope="col">Coupling residual \(\|\nu\|_2\)</th><th scope="col">Learned time (s)</th><th scope="col">YALMIP time (s)</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">3 × 2</th><td>0.00092 ± 0.002</td><td>0.0059 ± 0.01</td><td>0.064</td><td>0.12</td></tr>
+                <tr><th scope="row">6 × 4</th><td>0.0020 ± 0.005</td><td>0.00028 ± 0.0009</td><td>0.064</td><td>1.2</td></tr>
+                <tr><th scope="row">9 × 6</th><td>0.011 ± 0.01</td><td>0.000040 ± 0.0007</td><td>0.067</td><td>10.3</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption>Table 1, arXiv v2. Values are test-set means; ± denotes standard deviation across test instances. The relative gap is \(\left|\big(\mathcal L(\hat{\mathbf y},\hat{\mathbf z})-\mathcal L(\mathbf y^\star,\mathbf z^\star)\big)/\mathcal L(\mathbf y^\star,\mathbf z^\star)\right|\). Residuals are nonzero. <a href="https://arxiv.org/pdf/2507.09050v2#page=6">View source table</a>.</figcaption>
+        </figure>
+        <details class="research-details">
+          <summary>Quadratic-program setup and training</summary>
+          <div><p>The upper and lower objectives are convex quadratics, with linear constraints at both levels. The prediction model is a five-layer network with a cvxpylayers lower solve. Appendix C reports 10 correction steps during training and 20 at test time. Figure 2 tracks 75 training epochs.</p><p>The reported model is selected for lowest loss across the stated hyperparameter grid. The selected Adam learning rate is 10<sup>−3</sup>, correction step size is 10<sup>−4</sup>, and penalty weight is 100. The study does not provide certified comparisons beyond these small problem sizes.</p></div>
+        </details>
+
+        <h3>Two simulated control co-design tasks</h3>
+        <div class="application-grid">
+          <article class="card"><p class="eyebrow">Nonlinear dynamics</p><h3>Two-tank system</h3><p>Choose two inlet/outlet coefficients while an optimal control problem determines pump modulation and valve opening. The coupling condition requires reaching the prescribed terminal water levels.</p><p class="stat-note">Two states · Two controls · 20 Euler steps over 10 seconds · Nonconvex lower-level problem</p></article>
+          <article class="card"><p class="eyebrow">Building thermal dynamics</p><h3>HVAC actuator design</h3><p>Choose an actuator matrix for a two-zone building while optimizing heat inputs. Coupling conditions require indoor temperatures to remain within time-varying comfort bounds.</p><p class="stat-note">Eight states · Two controls · 30 steps · Linear thermal dynamics for a fixed design</p></article>
+        </div>
+        <div id="application-figures" class="figure-pair application-figures">
+          <figure class="figure figure-card">
+            <a href="assets/figures/tt_curves.svg" class="plot-scroll" aria-label="Scrollable research plot; open original figure at full resolution"><img src="assets/figures/tt_curves-display.svg" alt="Original Figure 3, two-tank panels: mean design objective and mean coupling residual across training epochs, compared with the PSO baseline." loading="lazy"></a>
+            <figcaption>Original Figure 3, left: two-tank co-design. Test-set design objective and coupling residual during training, alongside the PSO baseline.</figcaption>
+          </figure>
+          <figure class="figure figure-card">
+            <a href="assets/figures/HVAC_curves.svg" class="plot-scroll" aria-label="Scrollable research plot; open original figure at full resolution"><img src="assets/figures/HVAC_curves-display.svg" alt="Original Figure 3, HVAC panels: mean design objective and mean coupling residual across training epochs, compared with the PSO baseline. The residual axis uses a logarithmic scale." loading="lazy"></a>
+            <figcaption>Original Figure 3, right: HVAC co-design. The same test-set metrics for the building task; note the logarithmic residual axis.</figcaption>
+          </figure>
+        </div>
+        <p class="source-note">These are the authors’ original experiment plots. Their “Alg. 2” legend is retained, although the method is numbered Algorithm 1 in arXiv v2.</p>
+        <figure class="table-figure">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Control co-design results, horizontally scrollable">
+            <table class="results">
+              <thead><tr><th scope="col">System</th><th scope="col" class="left">Method</th><th scope="col">Design objective</th><th scope="col">Coupling residual \(\|\nu\|_2\)</th><th scope="col">Time (s)</th></tr></thead>
+              <tbody>
+                <tr class="highlight"><th scope="row">Two-tank</th><td class="left">Learned</td><td>0.122</td><td>0.014 ± 0.02</td><td>0.027</td></tr>
+                <tr><th scope="row">Two-tank</th><td class="left">PSO</td><td>0.140</td><td>0.016 ± 0.02</td><td>1268.7</td></tr>
+                <tr class="highlight sep"><th scope="row">HVAC</th><td class="left">Learned</td><td>1.23</td><td>0.030 ± 0.05</td><td>0.0770</td></tr>
+                <tr><th scope="row">HVAC</th><td class="left">PSO</td><td>1.46</td><td>0.030 ± 0.02</td><td>1055.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption>Table 2, arXiv v2. Test-set means over 1,000 instances for each task; ± denotes the standard deviation of the coupling residual across instances. Design objectives are the paper’s cost functions, not monetary amounts. <a href="https://arxiv.org/pdf/2507.09050v2#page=6">View source table</a>.</figcaption>
+        </figure>
+        <div class="result-interpretation prose"><p><strong>What these comparisons show.</strong> In both co-design tests, the selected learned model has a lower mean design objective than the configured PSO baseline, with comparable mean coupling residuals. The nonzero residuals and absence of certified co-design optima matter when interpreting this result.</p><p class="timing-note">Times are reproduced as reported, excluding offline learning. The primary paper does not specify timing hardware or batch size. These measurements do not establish deployment latency on other hardware or a real-time control guarantee.</p></div>
+        <details class="research-details">
+          <summary>Experimental conditions, baseline, and model selection</summary>
+          <div class="detail-grid">
+            <div><h4>Two-tank</h4><p>The initial state is zero. Terminal targets are sampled from [0, 1]<sup>2</sup> with \(p_1&lt;p_2\); design coefficients lie between 0 and 1/3. An eight-layer network uses a differentiable MPC solver whose sensitivities come from the final convex subproblem of a sequential quadratic procedure. The lower problem is nonconvex, so global optimality is not certified. The terminal-error penalty weight is 100.</p></div>
+            <div><h4>HVAC</h4><p>The actuator matrix \(\mathbf Y\in\mathbb R^{8\times2}\) is nonnegative, with equal weights in the design objective. Comfort lower bounds follow a beta random walk; upper bounds are lower bounds plus 2.0. The study uses a fixed disturbance pattern from NeuroMANCER and a six-layer ReLU network with a cvxpylayers lower solver.</p></div>
+            <div><h4>Training and selection</h4><p>Each co-design task uses 10,000 training, 1,000 validation, and 1,000 test instances. Appendices D–E report five correction steps during training and ten at test time. Reported models minimize mean design objective among runs whose mean coupling residual is no greater than PSO’s, after 10 epochs for two-tank and 25 for HVAC. The tables are not multi-seed averages.</p></div>
+            <div><h4>PSO baseline</h4><p>The pyswarms implementation uses 128 particles and 200 iterations, cognitive and social coefficients of 0.5, and inertia 0.9. It handles simple design bounds directly and uses a coupling penalty of 100 for two-tank and 5 for HVAC. Both methods use the same lower-level problem reformulations.</p></div>
+          </div>
+        </details>
+        <p class="source-note">Paper, Sections 5.1–5.2, Tables 1–2, Figures 2–3, and Appendices A–E. The selected scientific version is arXiv v2 (3 December 2025).</p>
+      </div>
+    </section>
+
+    <section id="scope" class="alt" aria-labelledby="scope-title">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Scope</p>
+        <h2 id="scope-title">Scope and open directions</h2>
+        <div class="prose">
+          <p>The architecture is intended for continuous bilevel problems with a useful differentiable lower-level response. The paper motivates uniqueness and differentiability as applicability conditions, while acknowledging practical use of almost-everywhere or approximate derivatives.</p>
+          <p>The design projection, lower-level solve, and coupling correction serve different purposes. A soft penalty and gradient corrections do not guarantee zero coupling violation. The study reports approximate solutions over its tested parameter distributions; it does not establish universal feasibility, global co-design optimality, or performance outside those distributions.</p>
+          <p>The experiments are numerical studies. Integer-valued designs and lower-level objectives that do not supply usable gradients are identified as directions for future work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" aria-labelledby="resources-title">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Resources</p>
+        <h2 id="resources-title">Read, inspect, and build on the work</h2>
+        <div class="resource-grid">
+          <a class="card resource-card" href="https://arxiv.org/pdf/2507.09050v2"><h3>Paper and appendices <span aria-hidden="true">↗</span></h3><p>Versioned scientific source, including the full method and experimental settings.</p></a>
+          <a class="card resource-card" href="https://github.com/anon-research-coding/Control-Design-Learning"><h3>Research code <span aria-hidden="true">↗</span></h3><p>The implementation repository linked by the authors in the paper.</p></a>
+          <a class="card resource-card" href="https://proceedings.mlr.press/v331/kotary26a.html"><h3>Official publication <span aria-hidden="true">↗</span></h3><p>The L4DC 2026 proceedings record and authoritative publication citation.</p></a>
+        </div>
+        <details class="research-details source-details">
+          <summary>Source versions and reporting notes</summary>
+          <div><p>This page’s equations and reported results follow arXiv:2507.09050v2. Publication status and the citation follow the official 2026 PMLR record. The earlier arXiv v1 used a different title.</p><p>Raw objective values are shown because the abstract’s percentage comparison is not consistent with a percentage reduction using PSO as the denominator. The two-tank PSO runtime follows Table 2 (1268.7 seconds); Section 5.2 prints 1286.7 seconds. Neither conflict is silently reconciled here.</p><p id="code-source-note">The <a href="https://github.com/anon-research-coding/Control-Design-Learning/tree/a6743e1a3477427bde2500b12249691275289d4c">inspected, untagged code snapshot</a> differs from the manuscript in sampling, objectives, correction counts, and the default number of HVAC zones. The results shown here are transcribed from v2, not reproduced from that snapshot. The website’s <a href="https://github.com/SOLARIS-JHU/Learning-Control-Co-Design-page/tree/main/docs">source map and code audit</a> preserve the details.</p></div>
+        </details>
+        <div id="citation" class="citation-section">
+          <h3>Citation</h3>
+          <p>Use the official proceedings citation below. PMLR records the fourth author as Draguna L Vrabie; the arXiv byline uses Draguna Vrabie.</p>
+          <div class="bibtex-box">
+            <button id="copy-bibtex" class="btn" type="button" aria-label="Copy BibTeX citation">Copy BibTeX</button>
+            <pre><code id="bibtex">@InProceedings{pmlr-v331-kotary26a,
+  title = {Learning to Solve Constrained Bilevel Control Co-Design Problems},
+  author = {Kotary, James and Sharma, Himanshu and King, Ethan
+            and Vrabie, Draguna L and Fioretto, Ferdinando and Drgona, Jan},
+  booktitle = {Proceedings of The 8th Annual Learning for Dynamics
+               and Control Conference},
+  pages = {222--241},
+  year = {2026},
+  editor = {Sukhatme, Gaurav and Lindemann, Lars and Tu, Stephen
+            and Wierman, Adam and Atanasov, Nikolay},
+  volume = {331},
+  series = {Proceedings of Machine Learning Research},
+  month = {17--19 Jun},
+  publisher = {PMLR},
+  pdf = {https://raw.githubusercontent.com/mlresearch/v331/main/assets/kotary26a/kotary26a.pdf},
+  url = {https://proceedings.mlr.press/v331/kotary26a.html}
+}</code></pre>
+          </div>
+          <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-inner">
+      <p><a href="https://solaris-jhu.github.io/solaris-website/">SOLARIS Laboratory</a> · Johns Hopkins University<br>Research by Pacific Northwest National Laboratory, University of Virginia, and Johns Hopkins University.</p>
+      <p>Design adapted from <a href="https://solaris-jhu.github.io/TQPNet/">TQPNet</a>. Research content and source assets remain attributed to their authors.<br><a href="https://github.com/SOLARIS-JHU/Learning-Control-Co-Design-page">Website source and provenance</a></p>
+    </div>
+  </footer>
+</body>
+</html>

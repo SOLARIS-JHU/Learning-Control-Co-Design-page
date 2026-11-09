@@ -1,0 +1,81 @@
+{
+  "checked": "2026-11-09",
+  "checks": [
+    {
+      "url": "https://solaris-jhu.github.io/solaris-website/",
+      "status": 200
+    },
+    {
+      "url": "https://sites.google.com/usc.edu/l4dc2026/program/technical-program",
+      "status": 200
+    },
+    {
+      "url": "https://j-kota.github.io/",
+      "status": 200
+    },
+    {
+      "url": "https://www.pnnl.gov/people/himanshu-sharma",
+      "status": 200
+    },
+    {
+      "url": "https://www.pnnl.gov/people/ethan-king",
+      "status": 200
+    },
+    {
+      "url": "https://www.pnnl.gov/people/draguna-vrabie-phd",
+      "status": 200
+    },
+    {
+      "url": "https://nandofioretto.github.io/",
+      "status": 200
+    },
+    {
+      "url": "https://engineering.jhu.edu/case/faculty/jan-drgona/",
+      "status": 403
+    },
+    {
+      "url": "https://www.pnnl.gov/",
+      "status": 200
+    },
+    {
+      "url": "https://www.virginia.edu/",
+      "status": 200
+    },
+    {
+      "url": "https://www.jhu.edu/",
+      "status": 403
+    },
+    {
+      "url": "https://arxiv.org/pdf/2507.09050v2",
+      "status": 200
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.09050v2",
+      "status": 200
+    },
+    {
+      "url": "https://proceedings.mlr.press/v331/kotary26a.html",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/anon-research-coding/Control-Design-Learning",
+      "status": 200
+    },
+    {
+      "url": "https://engineering.jhu.edu/",
+      "status": 403
+    },
+    {
+      "url": "https://arxiv.org/pdf/2507.09050v2#page=6",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/anon-research-coding/Control-Design-Learning/tree/a6743e1a3477427bde2500b12249691275289d4c",
+      "status": 200
+    },
+    {
+      "url": "https://solaris-jhu.github.io/TQPNet/",
+      "status": 200
+    }
+  ]
+}
